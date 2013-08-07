@@ -1,0 +1,4 @@
+find -name "*.jpg" -exec jpegrescan '{}' \;
+find -name "*.JPG" -exec jpegrescan '{}' \;
+find -name "*.jpeg" -exec jpegrescan '{}' \;
+find -name "*.JPEG" -exec jpegrescan '{}' \;

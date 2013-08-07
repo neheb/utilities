@@ -1,0 +1,20 @@
+Just a collection of utilities. Mostly bash scripts. Currently the tools are:
+
+jpegrescan - modified version of http://akuvian.org/src/jpgcrush.tar.gz
+It keeps EXIF data by default and supports arithmetic coding as well
+
+jpegfolder - script that uses jpegrescan on a given folder. keeps all EXIF data.
+Great for losslessly slimming down family photos.
+
+zipcrush - script that uses several utilities to create an extremely small zip file.
+Even smaller than zopfli I might add. The script has several dependencies:
+
+KZIP: http://advsys.net/ken/utils.htm or http://www.jonof.id.au/kenutils
+
+kzip2gz: http://encode.ru/threads/1630-kzip2gz-a-zip-(single-file-amp-deflate-compression)-to-gz-converter
+
+huffmix: http://encode.ru/threads/1313-Huffmix-a-PNGOUT-r-catalyst
+
+deflopt: http://www.walbeehm.com/download/
+
+defluff: http://encode.ru/threads/1214-defluff-a-deflate-huffman-optimizer
