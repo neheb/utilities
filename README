@@ -6,7 +6,7 @@ It keeps EXIF data by default and supports arithmetic coding as well
 jpegfolder - script that uses jpegrescan on a given folder. keeps all EXIF data.
 Great for losslessly slimming down family photos.
 
-zipcrush - script that uses several utilities to create an extremely small zip file.
+gzcrush - script that uses several utilities to create an extremely small gz file.
 Even smaller than zopfli I might add. The script has several dependencies:
 
 KZIP: http://advsys.net/ken/utils.htm or http://www.jonof.id.au/kenutils
@@ -18,3 +18,6 @@ huffmix: http://encode.ru/threads/1313-Huffmix-a-PNGOUT-r-catalyst
 deflopt: http://www.walbeehm.com/download/
 
 defluff: http://encode.ru/threads/1214-defluff-a-deflate-huffman-optimizer
+
+zipcrush - similar to gzcrush except it works on zip files. requires KZIP and ZIPMIX as well as deflopt and 
+defluff.

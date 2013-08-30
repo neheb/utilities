@@ -1,0 +1,78 @@
+kzip /b1024 1.zip "$1"
+kzip2gz 1.zip 1.gz
+rm 1.zip
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b1024 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b512 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b256 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b128 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b64 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b32 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+COUNTER=0
+while [	$COUNTER -lt 128 ]; do
+	kzip /rn /b16 2.zip "$1"
+	kzip2gz 2.zip 2.gz
+	huffmix 1.gz 2.gz 1.gz
+	rm 2.gz
+	rm 2.zip
+	let COUNTER=COUNTER+1
+done
+
+deflopt 1.gz
+defluff < 1.gz > 11.gz
+deflopt 11.gz
+mv 11.gz "$1"
