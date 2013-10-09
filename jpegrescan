@@ -1,9 +1,11 @@
 #!/usr/bin/perl -ws
 # jpegrescan by Loren Merritt
-# Last updated: 2008-11-29
+# Last updated: 2008-11-29 / 2013-10-08
 # This code is public domain.
 
 use File::Slurp;
+use File::Temp qw/ tempfile /;
+
 @ARGV==1 or die "usage: jpegrescan in.jpg
 tries various progressive scan orders
 switches:
@@ -13,8 +15,8 @@ switches:
   -a use arithmetic coding (unsupported by most software)
 ";
 $fin = $ARGV[0];
-$ftmp = "/tmp/$$.scan";
-$jtmp = "/tmp/$$.jpg";
+(undef, $ftmp) = tempfile(SUFFIX => ".scan");
+(undef, $jtmp) = tempfile(SUFFIX => ".jpg");
 $verbose = $v;
 $quiet = $q;
 @strip = $s ? ("-copy","none") : ("-copy","all");
@@ -91,7 +93,8 @@ if($rgb) {
     # 012 helps very little
     # 0/12 and 0/1/2 are pretty evenly matched in frequency, but 0/12 wins in total size if every image had to use the same mode
     # dc refinement passes never help
-    $dc = tries("0: 0 0 0 0; 1 2: 0 0 0 0;",
+    $dc = tries(
+                "0: 0 0 0 0; 1 2: 0 0 0 0;", # two scans expose a bug in Opera <= 11.61
                 "0: 0 0 0 0; 1: 0 0 0 0; 2: 0 0 0 0;");
     # jpegtran won't let me omit dc entirely, but I can at least quantize it away to make the rest of the tests faster.
     $prefix = "0 1 2: 0 0 0 9;";
@@ -110,7 +113,7 @@ if($rgb) {
 sub try_splits {
     my $str = shift;
     my %n = map {$_ => sprintf "$c: 1 %d $str; $c: %d 63 $str;", $_, $_+1} 2,5,8,12,18;
-    my $mode = triesn(2, "$c: 1 63 $str;", @n{2,8,5});
+    my $mode = triesn(3, "$c: 1 63 $str;", @n{2,8,5});
     return $mode if $mode ne $n{8};
     return triesn(1, $mode, @n{12,18});
 }
