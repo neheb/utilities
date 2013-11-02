@@ -1,0 +1,5 @@
+convert "$1" "pnm:-" > "$1"2
+rm "$1"
+mv "$1"2 "$1"
+gralic c "$1".gralic "$1"
+rm "$1"

@@ -1,0 +1,10 @@
+packjpg -np *.pjg
+rm *.pjg
+
+for file in `ls *.jpg`
+do
+newname=`echo $file|sed 's/\.jpg$//g'`
+mv $file $newname
+done
+
+jpegfolder

@@ -1,0 +1,9 @@
+find "$1" -name "*.jpg" -exec cp --parents '{}' "$2" \;
+find "$1" -name "*.JPG" -exec cp --parents '{}' "$2" \;
+find "$1" -name "*.jpeg" -exec cp --parents '{}' "$2" \;
+find "$1" -name "*.JPEG" -exec cp --parents '{}' "$2" \;
+
+find "$2" -name "*.jpg" -exec pkj '{}' \;
+find "$2" -name "*.JPG" -exec pkj '{}' \;
+find "$2" -name "*.jpeg" -exec pkj '{}' \;
+find "$2" -name "*.JPEG" -exec pkj '{}' \;

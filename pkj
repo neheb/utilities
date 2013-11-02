@@ -1,0 +1,5 @@
+jpegtran -copy all < "$1" > "$1"2
+rm "$1"
+mv "$1"2 "$1".jpg
+packjpg -np "$1".jpg
+rm "$1".jpg

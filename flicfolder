@@ -1,0 +1,9 @@
+find "$1" -name "*.png" -exec cp --parents '{}' $2 \;
+find "$1" -name "*.bmp" -exec cp --parents '{}' $2 \;
+find "$1" -name "*.PNG" -exec cp --parents '{}' $2 \;
+find "$1" -name "*.BMP" -exec cp --parents '{}' $2 \;
+
+find "$2" -name "*.png" -exec fliccrush '{}' \;
+find "$2" -name "*.bmp" -exec fliccrush '{}' \;
+find "$2" -name "*.PNG" -exec fliccrush '{}' \;
+find "$2" -name "*.BMP" -exec fliccrush '{}' \;
