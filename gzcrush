@@ -1,3 +1,5 @@
+#!/bin/sh
+
 kzip /b1024 1.zip "$1"
 kzip2gz 1.zip 1.gz
 rm 1.zip
@@ -9,7 +11,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -19,7 +21,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -29,7 +31,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -39,7 +41,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -49,7 +51,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -59,7 +61,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 COUNTER=0
@@ -69,7 +71,7 @@ while [	$COUNTER -lt 128 ]; do
 	huffmix 1.gz 2.gz 1.gz
 	rm 2.gz
 	rm 2.zip
-	let COUNTER=COUNTER+1
+	COUNTER=$((COUNTER + 1))
 done
 
 deflopt 1.gz

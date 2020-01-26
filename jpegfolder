@@ -1,3 +1,5 @@
+#!/bin/sh
+
 find "$1" -name "*.jpg" -exec jpegrescan '{}' \;
 find "$1" -name "*.JPG" -exec jpegrescan '{}' \;
 find "$1" -name "*.jpeg" -exec jpegrescan '{}' \;

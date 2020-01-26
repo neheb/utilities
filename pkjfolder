@@ -1,3 +1,5 @@
+#!/bin/sh
+
 find "$1" -name "*.jpg" -exec cp --parents '{}' "$2" \;
 find "$1" -name "*.JPG" -exec cp --parents '{}' "$2" \;
 find "$1" -name "*.jpeg" -exec cp --parents '{}' "$2" \;
